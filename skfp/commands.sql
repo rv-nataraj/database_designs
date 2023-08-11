@@ -61,3 +61,10 @@ CREATE TABLE skfp.`shop_master` (
   `contact_no` varchar(50)  DEFAULT NULL,
   PRIMARY KEY (`shop_id`)
 );
+
+/*  Add appropriate foreign keys  */
+
+ALTER TABLE `skfp`.`item_master` ADD FOREIGN KEY (`package_id`) REFERENCES `skfp`.`package_master`(`package_id`);
+ALTER TABLE `skfp`.`batch_master` ADD FOREIGN KEY (`product_id`) REFERENCES `skfp`.`product_master`(`product_id`);
+ALTER TABLE `skfp`.`items_supplied` ADD FOREIGN KEY (`shop_id`) REFERENCES `skfp`.`shop_master`(`shop_id`);
+ALTER TABLE `skfp`.`item_master` ADD FOREIGN KEY (`batch_id`) REFERENCES `skfp`.`batch_master`(`batch_id`);
