@@ -68,3 +68,57 @@ ALTER TABLE `skfp`.`item_master` ADD FOREIGN KEY (`package_id`) REFERENCES `skfp
 ALTER TABLE `skfp`.`batch_master` ADD FOREIGN KEY (`product_id`) REFERENCES `skfp`.`product_master`(`product_id`);
 ALTER TABLE `skfp`.`items_supplied` ADD FOREIGN KEY (`shop_id`) REFERENCES `skfp`.`shop_master`(`shop_id`);
 ALTER TABLE `skfp`.`item_master` ADD FOREIGN KEY (`batch_id`) REFERENCES `skfp`.`batch_master`(`batch_id`);
+
+
+/* include WHO columns and Soft Delete Attributes */
+
+ALTER TABLE skfp.`batch_master` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`item_master` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`items_returned` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`items_supplied` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`package_master` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`product_master` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+ALTER TABLE skfp.`shop_master` ADD COLUMN (
+  `record_status` tinyint(4) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `last_updated_by` int(11) DEFAULT NULL, 
+  `last_updated_date` datetime DEFAULT NULL);
+
+
